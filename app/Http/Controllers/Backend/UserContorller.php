@@ -11,7 +11,7 @@ class UserContorller extends Controller
 {
     public function userView()
     {
-        $allData = User::all();
+        $allData = User::where('usertype', 'Admin')->get();
         return view('backend.user.viewUser', ['allData' => $allData]);
     }
     public function userAdd()
@@ -25,10 +25,13 @@ class UserContorller extends Controller
             'name' => 'required|max:50'
         ]);
         $data  = new User();
-        $data->usertype = $request->usertype;
+        $code = rand(0000, 9999);
+        $data->usertype = 'Admin';
+        $data->role = $request->role;
         $data->name = $request->name;
         $data->email = $request->email;
-        $data->password = Hash::make($request->password);
+        $data->password = Hash::make($code);
+        $data->code = $code;
         $data->save();
 
         $notification = [
@@ -45,7 +48,7 @@ class UserContorller extends Controller
     public function userUpdate(Request $request, $id)
     {
         $data  = User::find($id);
-        $data->usertype = $request->usertype;
+        $data->role = $request->role;
         $data->name = $request->name;
         $data->email = $request->email;
         $data->save();

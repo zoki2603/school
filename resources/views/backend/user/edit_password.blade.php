@@ -16,7 +16,7 @@
     <div class="box-body">
         <div class="row">
         <div class="col">
-            <form  method="POST" action="{{ route('password.update') }}">
+            <form  method="POST" action="{{ route('Password.Update1') }}">
                 @csrf
                 <div class="row">
                 <div class="col-12">

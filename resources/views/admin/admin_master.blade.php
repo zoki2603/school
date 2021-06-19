@@ -89,7 +89,7 @@
   </script>
 
 	
-  <cript type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></cript>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
  @if(Session::has('message'))
@@ -112,7 +112,7 @@
     break; 
  }
  @endif 
-</cript>
+</script>
 	
 </body>
 </html>
